@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Normal Skintype</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFF4F2;
+            color: #823000;
+        }
+
+        #fullscreen-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+
+        #fullscreen-image.active {
+            opacity: 1;
+        }
+
+        .btn-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .btn-container a {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+            background-color: #ED9D7B;
+            color: #823000;
+            border-radius: 4px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var fullscreenImage = document.getElementById("fullscreen-image");
+            fullscreenImage.classList.add("active");
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="btn-container">
+        <a href="/input">Get Recommendation</a>
+    </div>
+    <img id="fullscreen-image" src="{{ url_for('static', filename='images/normalskin.png') }}" alt="Full Screen Image">
+</body>
+</html>

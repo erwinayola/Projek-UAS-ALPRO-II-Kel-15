@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF4F2;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #823000;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #823000;
+            margin-top: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #ED9D7B;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            color: #823000;
+        }
+
+        th {
+            background-color: #FF695D;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #FFD3CC;
+            cursor: pointer;
+        }
+
+        p {
+            color: #823000;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Product Filter Result</h1>
+
+    {% if recommended_product_info %}
+    <h2>Recommended Product:</h2>
+    <table>
+        <tr>
+            <th>Brand</th>
+            <th>Name</th>
+            <th>Rank</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>{{ recommended_product_info['Brand'] }}</td>
+            <td>{{ recommended_product_info['Name'] }}</td>
+            <td>{{ recommended_product_info['Rank'] }}</td>
+            <td>{{ recommended_product_info['Price'] }}</td>
+        </tr>
+    </table>
+    {% endif %}
+
+    {% if safe_products %}
+    <h2>Safe Products:</h2>
+    <table>
+        <tr>
+            <th>Brand</th>
+            <th>Name</th>
+            <th>Rank</th>
+            <th>Price</th>
+        </tr>
+        {% for product in safe_products %}
+        {% if product['Name'] != recommended_product_info['Name'] %}
+        <tr>
+            <td>{{ product['Brand'] }}</td>
+            <td>{{ product['Name'] }}</td>
+            <td>{{ product['Rank'] }}</td>
+            <td>{{ product['Price'] }}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+
+    <script>
+        var tableRows = document.getElementsByTagName('tr');
+        for (var i = 1; i < tableRows.length; i++) {
+            tableRows[i].addEventListener('click', function () {
+                this.style.backgroundColor = '#FF695D';
+                this.style.color = 'white';
+            });
+        }
+    </script>
+</body>
+
+</html>

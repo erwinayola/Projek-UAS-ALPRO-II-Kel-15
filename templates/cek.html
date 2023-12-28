@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kenali Jenis Kulitmu</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF4F2;
+            color: #823000;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        
+        .skin-type {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        
+        .skin-type-image {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #823000;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .skin-type-image {
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+            transition: transform 0.9s ease-in-out;
+            display: cover;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 2px solid #823000;
+        }
+
+        .skin-type:hover .skin-type-image {
+            transform: scale(1.1);
+        }
+        
+        .skin-type-description {
+            text-align: center;
+            margin-top: 0px;
+        }
+        
+        .btn-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .btn-container a {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 24px;
+            font-size: 18px;
+            text-decoration: none;
+            background-color: #ED9D7B;
+            color: #823000;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Kenali Jenis Kulitmu</h1>
+    <div class="skin-type">
+        <div class="skin-type-image">
+            <img src="{{ url_for('static', filename='images/normal.png') }}" alt="Jenis Kulit Normal">
+        </div>
+        <div class="skin-type-description">
+            <h2>Normal Skintype</h2>
+            <p>Kulit normal, seimbang seperti malaikat! Tak terlalu berminyak atau kering, pH dan produksi minyak selalu sempurna. Bikin kulit senang terus! Bagaimana dengan kulitmu? 🤔✨</p>
+            <div class="btn-container">
+                <a href="/normal">Selengkapnya</a>
+            </div>
+        </div>
+    </div>
+    <div class="skin-type">
+        <div class="skin-type-image">
+            <img src="{{ url_for('static', filename='images/oily.png') }}" alt="Jenis Kulit Berminyak">
+        </div>
+        <div class="skin-type-description">
+            <h2>Oily Skintype</h2>
+            <p>Kulit berminyak, produksi sebum berlebihan, sering bersinar, mudah berjerawat dan komedo. Bagaimana dengan kulitmu? 🌟</p>
+            <div class="btn-container">
+                <a href="/oily">Selengkapnya</a>
+            </div>
+        </div>
+    </div>
+    <div class="skin-type">
+        <div class="skin-type-image">
+            <img src="{{ url_for('static', filename='images/dry.png') }}"alt="Jenis Kulit Kering">
+        </div>
+        <div class="skin-type-description">
+            <h2>Dry Skintype</h2>
+            <p>Kulit kering, bikin kusam dan kasar. Kurang minyak, rentan kekeringan, pengaruh cuaca besar. Jangan lupa hydrasi! 💦</p>
+            <div class="btn-container">
+                <a href="/dry">Selengkapnya</a>
+            </div>
+        </div>
+    </div>
+    <div class="skin-type">
+        <div class="skin-type-image">
+            <img src="{{ url_for('static', filename='images/combination.png') }}" alt="Jenis Kulit Kombinasi">
+        </div>
+        <div class="skin-type-description">
+            <h2>Combination Skintype</h2>
+            <p>Kulit kombinasi, gabungan kulit kering dan oily! Butuh ekstra proteksi dari matahari karena agak berminyak dan sensitif. 🌞</p>
+            <div class="btn-container">
+                <a href="/combination">Selengkapnya</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

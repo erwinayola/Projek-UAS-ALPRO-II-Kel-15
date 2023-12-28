@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKINGENIE</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=29LTZeyn:wght@400;700&display=swap">
+    <style>
+        body {
+            text-align: left;
+            font-family: "Poppins", sans-serif;
+            background-color: #FFF4F2;
+            background-image: url('{{ url_for("static", filename="images/gambar2.png") }}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 100px;
+            margin-top: 0;
+            color: #823000;
+            font-family: "29LTZeyn", sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fade-in 1s ease-in-out;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        p {
+            font-size: 45px;
+            color: #444;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            animation: slide-up 1s ease-in-out;
+        }
+
+        @keyframes slide-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 30px;
+            animation: fade-in 1s ease-in-out;
+        }
+
+        .btn-container a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 20px;
+            text-decoration: none;
+            background-color: #ED9D7B;
+            color: #823000;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-container a:hover {
+            background-color: #C27456;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SKINGENIE</h1>
+        <p>Unlock Your Skin's Secrets, Discover Your Perfect Match</p>
+        <div class="btn-container">
+            <a href="/input">Get Recommendation</a>
+            <a href="/cek">More About Skintype</a>
+        </div>
+    </div>
+</body>
+</html>

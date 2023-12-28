@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Recommendation</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            background-color: #FFF4F2;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 45px;
+            margin-top: 100px;
+            color: #823000;
+            font-family: "29LTZeyn", sans-serif;
+            animation: scale-up 0.5s ease-in-out;
+        }
+
+        @keyframes scale-up {
+            0% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        form {
+            margin-top: 50px;
+            animation: fade-in 0.5s ease-in-out;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            animation: slide-up 0.5s ease-in-out;
+        }
+
+        @keyframes slide-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        .form-group select,
+        .form-group input[type="text"] {
+            width: 70%; 
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #FFF;
+            color: #444;
+            transition: border-color 0.3s ease;
+            display: inline-block; 
+        }
+
+        .form-group select:focus,
+        .form-group input[type="text"]:focus {
+            border-color: #ED9D7B;
+        }
+
+        .form-group input[type="submit"] {
+            padding: 12px 24px;
+            font-size: 20px;
+            text-decoration: none;
+            background-color: #ED9D7B;
+            color: #FFF4F2;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #C27456;
+            transform: scale(1.05);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=29LTZeyn:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Product Filter</h1>
+    <form action="/filter_products" method="POST">
+        <div class="form-group">
+            <label for="userLabel">Label Produk:</label>
+            <select id="userLabel" name="userLabel" required>
+                <option value="Moisturizer">Pelembab</option>
+                <option value="Face Mask">Masker wajah</option>
+                <option value="Sun protect">Sunblock</option>
+                <option value="Eye cream">Krim mata</option>
+                <option value="Cleanser">Pembersih</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="userSkinType">Jenis Kulit:</label>
+            <select id="userSkinType" name="userSkinType" required>
+                <option value="Dry">Kering</option>
+                <option value="Normal">Normal</option>
+                <option value="Combination">Kombinasi</option>
+                <option value="Oily">Berminyak</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="userAllergen">Allergen:</label>
+            <select id="userAllergen" name="userAllergen" required>
+                <option value="">Select...</option>
+                <option value="None">None</option>
+                <option value="Retinol">Retinol</option>
+                <option value="Niacinamide">Niacinamide</option>
+                <option value="Vitamin c">Vitamin C</option>
+                <option value="Glycerin">Glycerin</option>
+                <option value="Acid">Acid</option>
+                <option value="Fragrance">Fragrance</option>
+                <option value="Sodium Laureth Sulfate">Sodium Laureth Sulfate</option>
+                <option value="essential oils">Essential Oils</option>
+            </select>  
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Get Your Skincare">
+        </div>
+    </form>
+
+    <script>
+        // JavaScript code
+        const productCategorySelect = document.getElementById('userLabel');
+        const skinTypeSelect = document.getElementById('userSkinType');
+
+        productCategorySelect.addEventListener('change', function() {
+            const selectedCategory = this.value;
+            const skinTypeOptions = skinTypeSelect.querySelectorAll('option');
+
+            if (selectedCategory === 'Eye cream') {
+                // Hide the "Berminyak" option if "Krim mata" is selected
+                skinTypeOptions.forEach(option => {
+                    if (option.value === 'Oily') {
+                        option.style.display = 'none';
+                    }
+                });
+            } else {
+                skinTypeOptions.forEach(option => {
+                    if (option.value === 'Oily') {
+                        option.style.display = 'block';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
